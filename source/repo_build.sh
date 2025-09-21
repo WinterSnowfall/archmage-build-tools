@@ -84,6 +84,10 @@ then
                 BUILD_BASE_PATH="apitrace"
                 REPO_URL="https://github.com/apitrace/apitrace"
                 ;;
+            "dsoal")
+                BUILD_BASE_PATH="dsoal"
+                REPO_URL="https://github.com/kcat/dsoal"
+                ;;
             *)
                 echo "Invalid repository name selection."
                 exit 3
@@ -121,6 +125,9 @@ then
         elif [ "$REPO_NAME" == "apitrace" ]
         then
             cp ../../misc/package-release_apitrace.sh package-release.sh
+        elif [ "$REPO_NAME" == "dsoal" ]
+        then
+            cp ../../misc/package-release_dsoal.sh package-release.sh
         fi
 
         if [ "$BUILD_TYPE" == "native" ]
@@ -190,6 +197,9 @@ then
         then
             rm -f package-release.sh
         elif [ "$REPO_NAME" == "apitrace" ]
+        then
+            rm -f package-release.sh
+        elif [ "$REPO_NAME" == "dsoal" ]
         then
             rm -f package-release.sh
         fi
