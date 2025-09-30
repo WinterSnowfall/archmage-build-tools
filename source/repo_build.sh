@@ -168,7 +168,7 @@ then
 
             if [ "$BUILD_TYPE" == "native" ]
             then
-                rm -rf "/home/builder/output/$BUILD_BASE_PATH-$BUILD_NAME" 
+                rm -rf "/home/builder/output/$BUILD_BASE_PATH-$BUILD_NAME"
                 mv "/home/builder/$BUILD_BASE_PATH-$BUILD_NAME/usr" "/home/builder/output/$BUILD_BASE_PATH-$BUILD_NAME"
             else
                 rm -rf "/home/builder/output/$REPO_NAME-$BUILD_NAME"

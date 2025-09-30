@@ -1,9 +1,9 @@
 #!/bin/bash
 
-docker rmi dxvk-builder:xp 2>/dev/null
+docker rmi archmage-builder:xp 2>/dev/null
 docker pull debian:bullseye
 
-cd dockerfile-xp
-docker build -t dxvk-builder:xp .
+cd dockerfile_xp
+docker build -t archmage-builder:xp .
 cd ..
 

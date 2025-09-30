@@ -1,6 +1,6 @@
-﻿# dxvk-build-tools
+﻿# archmage-build-tools
 
-A collection of scripts and tools for constructing a docker image to build dxvk, vkd3d-proton, dxvk-sarek, dxvk-ags, dxvk-nvapi, dxvk-tests, d3d8to9, nvcuda, nvidia-libs, apitrace and even dsoal. Are you on Debian & derivatives or some other obscure distro and are tired of shuffling MinGW versions? Forget about your worries and build dxvk, vkd3d-proton, dxvk-sarek, dxvk-ags, dxvk-nvapi, dxvk-tests, d3d8to9, nvcuda, nvidia-libs, apitrace and dsoal using an Arch based docker container (much like the dxvk GitHub CI is doing).
+A collection of scripts and tools for constructing a docker image to build dxvk, vkd3d-proton, dxvk-sarek, dxvk-ags, dxvk-nvapi, dxvk-tests, d3d8to9, nvcuda, nvidia-libs, apitrace, dsoal and even wine tests and libraries. Are you on Debian & derivatives or some other obscure distro and are tired of shuffling MinGW versions? Forget about your worries and build dxvk, vkd3d-proton, dxvk-sarek, dxvk-ags, dxvk-nvapi, dxvk-tests, d3d8to9, nvcuda, nvidia-libs, apitrace, dsoal and wine tests and libraries using an Arch based docker container.
 
 ## What do I need?
 
@@ -36,19 +36,41 @@ The release builds are, indeed, however the provided script will use MinGW to bu
 
 ## What about dxvk-native?
 
-To build the native version of dxvk, you can use:
+* To build the native version of dxvk, you can use:
 
-`./repo_build_runner.sh <repo_name> [<build_name>] --native`
+    `./repo_build_runner.sh <repo_name> [<build_name>] --native`
 
-Where `<repo_name>` can only be dxvk. You can optionally also specify a `<build_name>`, otherwise it will default to `devel`.
+    Where `<repo_name>` can only be dxvk. You can optionally also specify a `<build_name>`, otherwise it will default to `devel`.
 
-Note that by default the builder will use an Arch image for the build process. If you want a Steam Runtime SDK compatible "Sniper" build, please first download and build the image, using:
+* Note that by default the builder will use an Arch image for the build process. If you want a Steam Runtime SDK compatible "Sniper" build, please first download and build the image, using:
 
-`./docker_build-sniper.sh`
+    `./docker_build-sniper.sh`
 
-And change the following line in the `repo_build_runner.sh` script:
+    And change the following line in the `repo_build_runner.sh` script:
 
-`DOCKER_IMAGE_TAG=":sniper"`
+    `DOCKER_IMAGE_TAG=":sniper"`
 
-Subsequent builds will use the Sniper image, and you will need to revert the value to `":latest"` if you wish to return to Arch based builds.
+    Subsequent builds will use the Sniper image, and you will need to revert the value to `":latest"` if you wish to return to Arch based builds.
+
+## Wait, I can build wine too?
+
+No, not really. Building and packaging a full fledged wine release isn't really what this builder is trying to achieve, rather only to provide a quick and easy way to get certain wine tests or individual wine libraries compiled.
+
+Assuming you already have docker installed and configured, as per the above steps, a basic wine builder usage guide is outlined below.
+
+* Fetch the latest Arch docker image and construct your wine build container. To do that simply run:
+  
+    `./docker_build-wine.sh`
+
+* Now, to launch your wine test build, use:
+  
+    `./wine_build_runner.sh <lib_name> <bitness>`
+  
+    Where `<lib_name>` can be any wine library that has a dedicated folder under the `dlls` source directory. You can also optionally specify a `<bitness>` of `32`, otherwise it will default to `64`.
+  
+    After the script completes and compilation is successful you can find the test binaries in the `output` folder.
+
+## What about using it to build wine libraries?
+
+I don't expect every wine library out there to build successfully, so consider yourself warned. That being said, you can set `BUILD_MODE="libs"` in the `wine_build_runner.sh` script to instruct the builder to compile individual wine libraries rather than tests.
 

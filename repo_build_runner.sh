@@ -59,8 +59,8 @@ then
     if $LOCAL_BUILD
     then
         docker run -ti --rm \
-                   --name dxvk-builder \
-                   -h dxvk-builder \
+                   --name archmage-builder \
+                   -h archmage-builder \
                    -e TZ="$TIMEZONE" \
                    -e REPO_NAME="$REPO_NAME" \
                    -e BUILD_NAME="$BUILD_NAME" \
@@ -68,7 +68,7 @@ then
                    -v "$SOURCE_PATH":/home/builder/source \
                    -v "$OUTPUT_PATH":/home/builder/output \
                    -v "$MISC_PATH":/home/builder/misc \
-                   dxvk-builder"$DOCKER_IMAGE_TAG"
+                   archmage-builder"$DOCKER_IMAGE_TAG"
     else
         if $USE_RSYNC
         then
@@ -83,8 +83,8 @@ then
         fi
 
         docker -H "ssh://$REMOTE_HOST_IP" run -ti --rm \
-                   --name dxvk-builder \
-                   -h dxvk-builder \
+                   --name archmage-builder \
+                   -h archmage-builder \
                    -e TZ="$TIMEZONE" \
                    -e REPO_NAME="$REPO_NAME" \
                    -e BUILD_NAME="$BUILD_NAME" \
@@ -92,7 +92,7 @@ then
                    -v "$SOURCE_PATH":/home/builder/source \
                    -v "$OUTPUT_PATH":/home/builder/output \
                    -v "$MISC_PATH":/home/builder/misc \
-                   dxvk-builder"$DOCKER_IMAGE_TAG"
+                   archmage-builder"$DOCKER_IMAGE_TAG"
 
         if $USE_RSYNC
         then
