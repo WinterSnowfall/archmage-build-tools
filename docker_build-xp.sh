@@ -1,9 +1,9 @@
 #!/bin/bash
 
-docker rmi archmage-builder:xp 2>/dev/null
+docker rmi wroshyr-builder:xp 2>/dev/null
 docker pull debian:bullseye
 
 cd dockerfile_xp
-docker build -t archmage-builder:xp .
+docker build -t wroshyr-builder:xp .
 cd ..
 

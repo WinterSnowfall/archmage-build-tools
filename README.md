@@ -1,4 +1,4 @@
-﻿# archmage-build-tools
+﻿# wroshyr_builder
 
 A collection of scripts and tools for constructing a docker image to build dxvk, vkd3d-proton, dxvk-sarek, dxvk-ags, dxvk-nvapi, dxvk-tests, d3d8to9, nvcuda, nvidia-libs, apitrace, dsoal and even wine tests and libraries. Are you on Debian & derivatives or some other obscure distro and are tired of shuffling MinGW versions? Forget about your worries and build dxvk, vkd3d-proton, dxvk-sarek, dxvk-ags, dxvk-nvapi, dxvk-tests, d3d8to9, nvcuda, nvidia-libs, apitrace, dsoal and wine tests and libraries using an Arch based docker container.
 

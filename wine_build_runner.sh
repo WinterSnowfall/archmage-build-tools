@@ -44,26 +44,26 @@ then
     if $LOCAL_BUILD
     then
         docker run -ti --rm \
-                   --name archmage-builder \
-                   -h archmage-builder \
+                   --name wroshyr-builder \
+                   -h wroshyr-builder \
                    -e TZ="$TIMEZONE" \
                    -e BUILD_MODE="$BUILD_MODE" \
                    -e TARGET_LIB="$TARGET_LIB" \
                    -e BUILD_X86_BITS=$BUILD_X86_BITS \
                    -v "$SOURCE_PATH":/home/builder/source \
                    -v "$OUTPUT_PATH":/home/builder/output \
-                   archmage-builder:wine
+                   wroshyr-builder:wine
     else
         docker -H "$REMOTE_HOST" run -ti --rm \
-                   --name archmage-builder \
-                   -h archmage-builder \
+                   --name wroshyr-builder \
+                   -h wroshyr-builder \
                    -e TZ="$TIMEZONE" \
                    -e BUILD_MODE="$BUILD_MODE" \
                    -e TARGET_LIB="$TARGET_LIB" \
                    -e BUILD_X86_BITS=$BUILD_X86_BITS \
                    -v "$SOURCE_PATH":/home/builder/source \
                    -v "$OUTPUT_PATH":/home/builder/output \
-                   archmage-builder:wine
+                   wroshyr-builder:wine
     fi
 else
     echo "Invalid parameters: please specify the target lib!"
