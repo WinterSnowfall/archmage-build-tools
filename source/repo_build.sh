@@ -40,7 +40,7 @@ then
         fi
 
         case "$REPO_NAME" in
-            "dxvk")
+            "dxvk"|"d7vk")
                 BUILD_BASE_PATH="dxvk"
                 REPO_URL="https://github.com/doitsujin/dxvk"
                 ;;
@@ -59,6 +59,10 @@ then
             "dxvk-tests")
                 BUILD_BASE_PATH="dxvk-tests"
                 REPO_URL="https://github.com/doitsujin/dxvk-tests"
+                ;;
+            "d7vk")
+                BUILD_BASE_PATH="dxvk"
+                REPO_URL="https://github.com/WinterSnowfall/d7vk"
                 ;;
             "d8vk-tests")
                 BUILD_BASE_PATH="dxvk-tests"

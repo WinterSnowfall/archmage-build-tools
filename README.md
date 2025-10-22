@@ -1,6 +1,6 @@
 ﻿# wroshyr_builder
 
-A collection of scripts and tools for constructing a docker image to build dxvk, vkd3d-proton, dxvk-sarek, dxvk-ags, dxvk-nvapi, dxvk-tests, d3d8to9, nvcuda, nvidia-libs, apitrace, dsoal and even wine tests and libraries. Are you on Debian & derivatives or some other obscure distro and are tired of shuffling MinGW versions? Forget about your worries and build dxvk, vkd3d-proton, dxvk-sarek, dxvk-ags, dxvk-nvapi, dxvk-tests, d3d8to9, nvcuda, nvidia-libs, apitrace, dsoal and wine tests and libraries using an Arch based docker container.
+A collection of scripts and tools for constructing a docker image to build dxvk, vkd3d-proton, dxvk-sarek, d7vk, dxvk-ags, dxvk-nvapi, dxvk-tests, d3d8to9, nvcuda, nvidia-libs, apitrace, dsoal and even wine tests and libraries. Are you on Debian & derivatives or some other obscure distro and are tired of shuffling MinGW versions? Forget about your worries and build dxvk, vkd3d-proton, dxvk-sarek, d7vk, dxvk-ags, dxvk-nvapi, dxvk-tests, d3d8to9, nvcuda, nvidia-libs, apitrace, dsoal and wine tests and libraries using an Arch based docker container.
 
 ## What do I need?
 
@@ -26,9 +26,9 @@ And also git, in case that wasn't already painfully obvious.
   
     `./repo_build_runner.sh <repo_name> [<build_name>]`
   
-    Where `<repo_name>` can be either dxvk, vkd3d-proton, dxvk-sarek, dxvk-ags, dxvk-nvapi, dxvk-tests, d3d8to9, nvcuda, nvidia-libs, apitrace or dsoal. You can optionally also specify a `<build_name>`, otherwise it will default to `devel`.
+    Where `<repo_name>` can be either dxvk, vkd3d-proton, dxvk-sarek, d7vk, dxvk-ags, dxvk-nvapi, dxvk-tests, d3d8to9, nvcuda, nvidia-libs, apitrace or dsoal. You can optionally also specify a `<build_name>`, otherwise it will default to `devel`.
   
-    Run the above whenever you need to build/rebuild dxvk, vkd3d-proton, dxvk-sarek, dxvk-ags, dxvk-nvapi, dxvk-tests, d3d8to9, nvcuda, nvidia-libs, apitrace or dsoal. Note that the scripts will delete the previously compiled binaries if you use the same parameters. Back up any folders in the `output` directory if you want to keep older versions around.
+    Run the above whenever you need to build/rebuild dxvk, vkd3d-proton, dxvk-sarek, d7vk, dxvk-ags, dxvk-nvapi, dxvk-tests, d3d8to9, nvcuda, nvidia-libs, apitrace or dsoal. Note that the scripts will delete the previously compiled binaries if you use the same parameters. Back up any folders in the `output` directory if you want to keep older versions around.
 
 ## Wait, d3d8to9? Isn't that built using MSVC?
 
