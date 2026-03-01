@@ -63,6 +63,9 @@ exe_ext = ''
 dll_ext = ''
 def_spec_ext = '.def'
 
+if cpp.has_header('d3d.h', include_directories: include_directories('.', 'ddraw'))
+  subdir('ddraw')
+endif
 if cpp.has_header('d3d8.h', include_directories: include_directories('.', 'd3d8'))
   subdir('d3d8')
 endif

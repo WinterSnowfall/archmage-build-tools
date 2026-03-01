@@ -64,9 +64,9 @@ then
                 BUILD_BASE_PATH="dxvk"
                 REPO_URL="https://github.com/WinterSnowfall/d7vk"
                 ;;
-            "d8vk-tests")
+            "d7vk-tests")
                 BUILD_BASE_PATH="dxvk-tests"
-                REPO_URL="https://github.com/WinterSnowfall/d8vk-tests"
+                REPO_URL="https://github.com/WinterSnowfall/d7vk-tests"
                 ;;
             "d3d8to9")
                 BUILD_BASE_PATH="d3d8to9"
@@ -114,14 +114,14 @@ then
         elif [ "$REPO_NAME" == "dxvk-tests" ]
         then
             cp ../../misc/package-release_dxvk-tests.sh package-release.sh
-        elif [ "$REPO_NAME" == "d8vk-tests" ]
+        elif [ "$REPO_NAME" == "d7vk-tests" ]
         then
             cp ../../misc/package-release_dxvk-tests.sh package-release.sh
 
             if [ "$BUILD_VARIANT" == "xp" ]
             then
                 mv meson.build meson.build.bak
-                cp ../../misc/meson_d8vk-tests-xp.build meson.build
+                cp ../../misc/meson_d7vk-tests-xp.build meson.build
             fi
         elif [ "$REPO_NAME" == "d3d8to9" ]
         then
@@ -188,7 +188,7 @@ then
         elif [ "$REPO_NAME" == "dxvk-tests" ]
         then
             rm -f package-release.sh
-        elif [ "$REPO_NAME" == "d8vk-tests" ]
+        elif [ "$REPO_NAME" == "d7vk-tests" ]
         then
             rm -f package-release.sh
 
