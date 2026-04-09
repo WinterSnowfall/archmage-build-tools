@@ -46,7 +46,7 @@ then
             rm -f "$SOURCE_PATH/../output/$OUTPUT_FOLDER/x$BUILD_X86_BITS/$TARGET_LIB".dll 2>/dev/null
 
             cd "dlls/$TARGET_LIB"
-            make
+            make -j "$(nproc)"
 
             cp "$BUILD_DIR/$TARGET_LIB".dll "$SOURCE_PATH/../output/$OUTPUT_FOLDER/x$BUILD_X86_BITS"
         # fallback to building tests otherwise
@@ -59,7 +59,7 @@ then
                 cd "dlls/$TARGET_LIB/tests"
                 # will fail post-compilation, during test run,
                 # since it won't find a wineserver binary
-                make test 2>/dev/null
+                make -j "$(nproc)" test 2>/dev/null
 
                 cp "$BUILD_DIR/$TARGET_LIB"_test.exe "$SOURCE_PATH/../output/$OUTPUT_FOLDER/x$BUILD_X86_BITS"
             else
