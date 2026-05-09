@@ -138,7 +138,12 @@ then
         then
             ./package-native.sh "$BUILD_NAME" /home/builder --no-package
         else
-            ./package-release.sh "$BUILD_NAME" /home/builder --no-package
+            if [ "$REPO_NAME" == "nvcuda" -o "$REPO_NAME" == "nvidia-libs" ]
+            then
+                ./package-release.sh "$BUILD_NAME" /home/builder
+            else
+                ./package-release.sh "$BUILD_NAME" /home/builder --no-package
+            fi
         fi
 
         if [ $? -eq 0 ]

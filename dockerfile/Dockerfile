@@ -13,7 +13,6 @@ RUN echo -e "\n\n[multilib]\nInclude = /etc/pacman.d/mirrorlist\n" >> /etc/pacma
     sdl2 \
     sdl3 \
     git
-RUN pacman -U --noconfirm https://archive.archlinux.org/packages/w/wine/wine-10.8-1-x86_64.pkg.tar.zst
 RUN useradd -m builder \
     && chmod 777 /home/builder
 
