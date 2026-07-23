@@ -14,7 +14,7 @@ RUN dpkg --add-architecture i386 \
     git \
     python3 \
     python3-pip \
-    && pip3 install meson ninja \
+    && pip3 install meson==1.10.2 ninja \
     # cleanup post meson/ninja install to reduce final image size
     && apt-get remove -y python3-pip \
     && apt-get autoremove -y
