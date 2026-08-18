@@ -12,8 +12,8 @@ RUN echo -e "\n\n[multilib]\nInclude = /etc/pacman.d/mirrorlist\n" >> /etc/pacma
     wine \
     sdl2 \
     sdl3 \
-    git
-RUN useradd -m builder \
+    git \
+    && useradd -m builder \
     && chmod 777 /home/builder
 
 USER builder

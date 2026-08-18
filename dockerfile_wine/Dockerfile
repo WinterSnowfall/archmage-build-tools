@@ -52,9 +52,9 @@ RUN echo -e "\n\n[multilib]\nInclude = /etc/pacman.d/mirrorlist\n" >> /etc/pacma
     lib32-libpulse \
     gstreamer \
     #lib32-gstreamer \
-    gst-plugins-base-libs #\
-    #lib32-gst-plugins-base-libs
-RUN useradd -m builder \
+    gst-plugins-base-libs \
+    #lib32-gst-plugins-base-libs \
+    && useradd -m builder \
     && chmod 777 /home/builder
 
 USER builder

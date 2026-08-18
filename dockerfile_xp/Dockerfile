@@ -17,8 +17,8 @@ RUN dpkg --add-architecture i386 \
     && pip3 install meson==1.10.2 ninja \
     # cleanup post meson/ninja install to reduce final image size
     && apt-get remove -y python3-pip \
-    && apt-get autoremove -y
-RUN useradd -m builder \
+    && apt-get autoremove -y \
+    && useradd -m builder \
     && chmod 777 /home/builder
 
 USER builder

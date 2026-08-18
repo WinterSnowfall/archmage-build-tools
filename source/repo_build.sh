@@ -108,7 +108,10 @@ then
     then
         cd "$REPO_NAME"
 
-        if [ "$REPO_NAME" == "dxvk-ags" ]
+        if [ "$REPO_NAME" == "dxvk-sarek" ]
+        then
+            cp ../../misc/package-release_dxvk-sarek.sh package-release.sh
+        elif [ "$REPO_NAME" == "dxvk-ags" ]
         then
             cp ../../misc/package-release_dxvk-ags.sh package-release.sh
         elif [ "$REPO_NAME" == "dxvk-tests" ]
@@ -187,7 +190,10 @@ then
             rm -rf "/home/builder/$BUILD_BASE_PATH-$BUILD_NAME"
         fi
 
-        if [ "$REPO_NAME" == "dxvk-ags" ]
+        if [ "$REPO_NAME" == "dxvk-sarek" ]
+        then
+            rm -f package-release.sh
+        elif [ "$REPO_NAME" == "dxvk-ags" ]
         then
             rm -f package-release.sh
         elif [ "$REPO_NAME" == "dxvk-tests" ]
