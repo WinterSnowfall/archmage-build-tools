@@ -1,7 +1,7 @@
 FROM archlinux:latest
 
-RUN echo -e "\n\n[multilib]\nInclude = /etc/pacman.d/mirrorlist\n" >> /etc/pacman.conf \
-    && pacman -Syu --noconfirm && pacman -S --noconfirm \
+RUN echo -e "\n\n[multilib]\nInclude = /etc/pacman.d/mirrorlist\n" >> /etc/pacman.conf
+RUN pacman -Syu --needed --noconfirm \
     mingw-w64-gcc \
     glslang \
     git \
@@ -45,16 +45,16 @@ RUN echo -e "\n\n[multilib]\nInclude = /etc/pacman.d/mirrorlist\n" >> /etc/pacma
     lib32-vulkan-icd-loader \
     vulkan-headers \
     sdl2 \
-    lib32-sdl2 \
+    #lib32-sdl2 \
     alsa-lib \
     lib32-alsa-lib \
     libpulse \
     lib32-libpulse \
     gstreamer \
     #lib32-gstreamer \
-    gst-plugins-base-libs \
-    #lib32-gst-plugins-base-libs \
-    && useradd -m builder \
+    gst-plugins-base-libs
+    #lib32-gst-plugins-base-libs
+RUN useradd -m builder \
     && chmod 777 /home/builder
 
 USER builder

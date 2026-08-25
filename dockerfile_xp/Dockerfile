@@ -2,8 +2,9 @@ FROM debian:bullseye
 
 ENV DEBIAN_FRONTEND=noninteractive
 
-RUN dpkg --add-architecture i386 \
-    && apt-get update && apt-get install -y --no-install-recommends \
+RUN dpkg --add-architecture i386
+RUN apt-get update && apt-get dist-upgrade -y
+RUN apt-get install -y --no-install-recommends \
     mingw-w64 \
     gcc \
     pkgconf \
@@ -13,12 +14,11 @@ RUN dpkg --add-architecture i386 \
     wine \
     git \
     python3 \
-    python3-pip \
-    && pip3 install meson==1.10.2 ninja \
-    # cleanup post meson/ninja install to reduce final image size
-    && apt-get remove -y python3-pip \
-    && apt-get autoremove -y \
-    && useradd -m builder \
+    python3-pip
+RUN pip3 install meson==1.10.2 ninja
+# cleanup post meson/ninja install to reduce final image size
+RUN apt-get remove -y python3-pip && apt-get autoremove -y
+RUN useradd -m builder \
     && chmod 777 /home/builder
 
 USER builder
