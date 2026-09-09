@@ -1,4 +1,4 @@
-FROM debian:bullseye
+FROM debian:bookworm
 
 ENV DEBIAN_FRONTEND=noninteractive
 
@@ -15,7 +15,7 @@ RUN apt-get install -y --no-install-recommends \
     git \
     python3 \
     python3-pip
-RUN pip3 install meson==1.10.2 ninja
+RUN pip3 install --break-system-packages meson ninja
 # cleanup post meson/ninja install to reduce final image size
 RUN apt-get remove -y python3-pip && apt-get autoremove -y
 RUN useradd -m builder \
