@@ -72,6 +72,10 @@ then
                 BUILD_BASE_PATH="d3d8to9"
                 REPO_URL="https://github.com/crosire/d3d8to9"
                 ;;
+            "d3d9to8")
+                BUILD_BASE_PATH="d3d9to8"
+                REPO_URL="https://github.com/WinterSnowfall/d3d9to8"
+                ;;
             "vkd3d-proton")
                 BUILD_BASE_PATH="vkd3d-proton"
                 REPO_URL="https://github.com/HansKristian-Work/vkd3d-proton"
@@ -129,6 +133,9 @@ then
         elif [ "$REPO_NAME" == "d3d8to9" ]
         then
             cp ../../misc/package-release_d3d8to9.sh package-release.sh
+        elif [ "$REPO_NAME" == "d3d9to8" ]
+        then
+            cp ../../misc/package-release_d3d9to8.sh package-release.sh
         elif [ "$REPO_NAME" == "apitrace" ]
         then
             cp ../../misc/package-release_apitrace.sh package-release.sh
@@ -209,6 +216,9 @@ then
                 mv meson.build.bak meson.build
             fi
         elif [ "$REPO_NAME" == "d3d8to9" ]
+        then
+            rm -f package-release.sh
+        elif [ "$REPO_NAME" == "d3d9to8" ]
         then
             rm -f package-release.sh
         elif [ "$REPO_NAME" == "apitrace" ]
